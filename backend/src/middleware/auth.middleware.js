@@ -1,6 +1,6 @@
-const jwt = require('jsonwebtoken');
+import jwt from 'jsonwebtoken';
 
-const protect = async (req, res, next) => {
+export const protect = async (req, res, next) => {
   let token;
 
   // 1) Getting token and check if it exists
@@ -38,5 +38,3 @@ const protect = async (req, res, next) => {
     });
   }
 };
-
-module.exports = { protect };

@@ -1,4 +1,4 @@
-const restrictTo = (...roles) => {
+export const restrictTo = (...roles) => {
   return (req, res, next) => {
     // Check if user is logged in and has one of the allowed roles
     if (!req.user || !roles.includes(req.user.role)) {
@@ -10,5 +10,3 @@ const restrictTo = (...roles) => {
     next();
   };
 };
-
-module.exports = { restrictTo };

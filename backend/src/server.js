@@ -5,9 +5,9 @@ process.on('uncaughtException', (err) => {
   process.exit(1);
 });
 
-require('dotenv').config();
-const app = require('./app');
-const connectDB = require('./config/db');
+import 'dotenv/config';
+import app from './app.js';
+import connectDB from './config/db.js';
 
 // Connect to MongoDB
 connectDB();

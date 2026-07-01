@@ -1,11 +1,12 @@
-const express = require('express');
-const cors = require('cors');
-const helmet = require('helmet');
-const morgan = require('morgan');
-const cookieParser = require('cookie-parser');
+import express from 'express';
+import cors from 'cors';
+import helmet from 'helmet';
+import morgan from 'morgan';
+import cookieParser from 'cookie-parser';
 
-const notFound = require('./middleware/notFound.middleware');
-const errorHandler = require('./middleware/error.middleware');
+import notFound from './middleware/notFound.middleware.js';
+import errorHandler from './middleware/error.middleware.js';
+import routes from './routes/index.js';
 
 const app = express();
 
@@ -37,10 +38,13 @@ app.get('/api/health', (req, res) => {
   });
 });
 
+// API routes
+app.use('/api/v1', routes);
+
 // 404 handler for unhandled routes
 app.use(notFound);
 
 // Global error handling middleware
 app.use(errorHandler);
 
-module.exports = app;
+export default app;
