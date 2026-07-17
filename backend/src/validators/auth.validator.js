@@ -19,3 +19,13 @@ export const registerValidator = [
     .isMobilePhone()
     .withMessage("Invalid phone number"),
 ];
+
+export const loginValidator = [
+  body("email")
+    .isEmail()
+    .withMessage("Invalid email"),
+
+  body("password")
+    .notEmpty()
+    .withMessage("Password is required"),
+];

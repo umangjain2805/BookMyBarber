@@ -1,12 +1,8 @@
 import { Router } from "express";
+import { getRecommendationsController } from "../controllers/recommendation.controller.js";
 
 const router = Router();
 
-router.get("/", (req, res) => {
-  res.json({
-    success: true,
-    message: "Recommendation Route Working",
-  });
-});
+router.get("/", getRecommendationsController);
 
 export default router;
